@@ -32,3 +32,10 @@
 
 :root {
 }
+
+.site-title img {
+  height: 140px;     /* make bigger or smaller */
+  width: auto;      /* keeps proportions */
+  display: block;
+  margin-right: 0.75rem;
+}
