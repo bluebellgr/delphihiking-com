@@ -1,0 +1,45 @@
+---
+import { getEmDashEntry, getEmDashCollection, getSeoMeta, getSiteSettings } from "emdash";
+import { Image, PortableText } from "emdash/ui";
+import Base from "../layouts/Base.astro";
+import Icon from "../components/Icon.astro";
+import { resolveBlogSiteIdentity } from "../utils/site-identity";
+
+const [{ entry: page, cacheHint }, guidesResult, settings] = await Promise.all([
+	getEmDashEntry("pages", "about"),
+	getEmDashCollection("guides", { orderBy: { sort_order: "asc" } }),
+	getSiteSettings(),
+]);
+if (!page) return Astro.rewrite("/404");
+if (Astro.cache?.enabled) { Astro.cache.set(cacheHint); Astro.cache.set(guidesResult.cacheHint); }
+const { siteTitle } = resolveBlogSiteIdentity(settings);
+const seo = getSeoMeta(page, { siteTitle, siteUrl: Astro.url.origin, path: "/about" });
+const d = page.data;
+const link = (d.items ?? []).find((i: any) => i.url);
+---
+
+<Base title={seo.title ?? "About us"} description={seo.description} canonical={seo.canonical} content={{ collection: "pages", id: d.id, slug: "about" }}>
+	<section class="wrap" style="padding-top: 40px">
+		<div class="split" style="align-items: start">
+			<div>
+				{d.kicker && <span class="tag tag-accent kicker">{d.kicker}</span>}
+				<h1 class="h-display" style="margin-bottom: 24px" {...page.edit.title}>{d.title}</h1>
+				<div class="about-body" {...page.edit.content}><PortableText value={d.content} /></div>
+				{link && (
+					<div class="yt">
+						{link.text && <p>{link.text}</p>}
+						<a class="btn btn-primary" href={link.url} target="_blank" rel="noopener" style="padding: 12px 22px; font-size: 15px"><Icon name="youtube" />{link.title}</a>
+					</div>
+				)}
+			</div>
+			<div class="guides">
+				{guidesResult.entries.map((g) => (
+					<figure style="margin-inline: 0">
+						{g.data.photo && <div class="media washed"><Image image={g.data.photo} /></div>}
+						<figcaption><strong>{g.data.title}</strong>{g.data.role}</figcaption>
+					</figure>
+				))}
+			</div>
+		</div>
+	</section>
+</Base>

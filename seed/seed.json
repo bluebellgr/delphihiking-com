@@ -2,22 +2,27 @@
 	"$schema": "https://emdashcms.com/seed.schema.json",
 	"version": "1",
 	"meta": {
-		"name": "Blog Starter",
-		"description": "A blog with posts and pages",
-		"author": "EmDash"
+		"name": "Delphi Hiking",
+		"description": "Small-group hiking tours to the ancient sites around Delphi",
+		"author": "Delphi Hiking"
 	},
 	"settings": {
-		"title": "My Blog",
-		"tagline": "Thoughts on building for the web"
+		"title": "Delphi Hiking",
+		"tagline": "Hiking through ancient mystical sites"
 	},
 	"collections": [
 		{
-			"slug": "posts",
-			"label": "Posts",
-			"labelSingular": "Post",
-			"urlPattern": "/posts/{slug}",
-			"supports": ["drafts", "revisions", "preview", "scheduling", "search", "seo"],
-			"commentsEnabled": true,
+			"slug": "tours",
+			"label": "Hikes",
+			"labelSingular": "Hike",
+			"urlPattern": "/hikes/{slug}",
+			"supports": [
+				"drafts",
+				"revisions",
+				"preview",
+				"search",
+				"seo"
+			],
 			"fields": [
 				{
 					"slug": "title",
@@ -27,20 +32,214 @@
 					"searchable": true
 				},
 				{
-					"slug": "featured_image",
-					"label": "Featured Image",
-					"type": "image"
-				},
-				{
-					"slug": "content",
-					"label": "Content",
-					"type": "portableText",
+					"slug": "lede",
+					"label": "Short description",
+					"type": "text",
 					"searchable": true
 				},
 				{
-					"slug": "excerpt",
-					"label": "Excerpt",
+					"slug": "difficulty",
+					"label": "Difficulty (EASY, MEDIUM or HARD)",
+					"type": "string"
+				},
+				{
+					"slug": "group_size",
+					"label": "Group size",
+					"type": "string"
+				},
+				{
+					"slug": "sort_order",
+					"label": "Order on homepage",
+					"type": "integer"
+				},
+				{
+					"slug": "from_price",
+					"label": "Lowest price per person (€)",
+					"type": "integer"
+				},
+				{
+					"slug": "transport_included",
+					"label": "Transport included",
+					"type": "boolean"
+				},
+				{
+					"slug": "cover",
+					"label": "Cover photo",
+					"type": "image",
+					"required": true
+				},
+				{
+					"slug": "gallery",
+					"label": "Gallery",
+					"type": "repeater",
+					"validation": {
+						"subFields": [
+							{
+								"slug": "image",
+								"label": "Image",
+								"type": "image",
+								"required": true
+							}
+						]
+					}
+				},
+				{
+					"slug": "distance",
+					"label": "Distance",
+					"type": "string"
+				},
+				{
+					"slug": "elevation",
+					"label": "Elevation (+/−)",
+					"type": "string"
+				},
+				{
+					"slug": "hiking_time",
+					"label": "Hiking time",
+					"type": "string"
+				},
+				{
+					"slug": "total_time",
+					"label": "Total trip time",
+					"type": "string"
+				},
+				{
+					"slug": "terrain",
+					"label": "Terrain",
+					"type": "string"
+				},
+				{
+					"slug": "departure",
+					"label": "Departure",
+					"type": "string"
+				},
+				{
+					"slug": "ages",
+					"label": "Recommended ages",
+					"type": "string"
+				},
+				{
+					"slug": "fitness",
+					"label": "Physical condition",
+					"type": "string"
+				},
+				{
+					"slug": "story_heading",
+					"label": "Story heading",
+					"type": "string"
+				},
+				{
+					"slug": "story",
+					"label": "Story",
+					"type": "repeater",
+					"validation": {
+						"subFields": [
+							{
+								"slug": "heading",
+								"label": "Heading",
+								"type": "string"
+							},
+							{
+								"slug": "text",
+								"label": "Text",
+								"type": "text",
+								"required": true
+							}
+						]
+					}
+				},
+				{
+					"slug": "highlights",
+					"label": "Highlights",
+					"type": "repeater",
+					"validation": {
+						"subFields": [
+							{
+								"slug": "text",
+								"label": "Highlight",
+								"type": "text",
+								"required": true
+							}
+						]
+					}
+				},
+				{
+					"slug": "equipment",
+					"label": "Equipment needed",
+					"type": "repeater",
+					"validation": {
+						"subFields": [
+							{
+								"slug": "item",
+								"label": "Item",
+								"type": "string",
+								"required": true
+							}
+						]
+					}
+				},
+				{
+					"slug": "prices",
+					"label": "Prices",
+					"type": "repeater",
+					"validation": {
+						"subFields": [
+							{
+								"slug": "group",
+								"label": "Group size",
+								"type": "string",
+								"required": true
+							},
+							{
+								"slug": "price",
+								"label": "Price per person",
+								"type": "string",
+								"required": true
+							}
+						]
+					}
+				},
+				{
+					"slug": "price_note",
+					"label": "Price note",
+					"type": "string"
+				},
+				{
+					"slug": "note",
+					"label": "Extra note",
 					"type": "text"
+				}
+			]
+		},
+		{
+			"slug": "guides",
+			"label": "Guides",
+			"labelSingular": "Guide",
+			"supports": [
+				"drafts",
+				"revisions"
+			],
+			"fields": [
+				{
+					"slug": "title",
+					"label": "Name",
+					"type": "string",
+					"required": true
+				},
+				{
+					"slug": "role",
+					"label": "Role",
+					"type": "string"
+				},
+				{
+					"slug": "photo",
+					"label": "Photo",
+					"type": "image"
+				},
+				{
+					"slug": "sort_order",
+					"label": "Order",
+					"type": "integer"
 				}
 			]
 		},
@@ -48,8 +247,14 @@
 			"slug": "pages",
 			"label": "Pages",
 			"labelSingular": "Page",
-			"urlPattern": "/pages/{slug}",
-			"supports": ["drafts", "revisions", "preview", "search", "seo"],
+			"urlPattern": "/{slug}",
+			"supports": [
+				"drafts",
+				"revisions",
+				"preview",
+				"search",
+				"seo"
+			],
 			"fields": [
 				{
 					"slug": "title",
@@ -59,73 +264,72 @@
 					"searchable": true
 				},
 				{
+					"slug": "kicker",
+					"label": "Small label above title",
+					"type": "string"
+				},
+				{
+					"slug": "lead",
+					"label": "Lead paragraph",
+					"type": "text"
+				},
+				{
+					"slug": "hero_image",
+					"label": "Hero image",
+					"type": "image"
+				},
+				{
+					"slug": "intro_heading",
+					"label": "Intro heading",
+					"type": "string"
+				},
+				{
+					"slug": "intro",
+					"label": "Intro text",
+					"type": "text"
+				},
+				{
 					"slug": "content",
 					"label": "Content",
 					"type": "portableText",
 					"searchable": true
+				},
+				{
+					"slug": "items",
+					"label": "List items",
+					"type": "repeater",
+					"validation": {
+						"subFields": [
+							{
+								"slug": "title",
+								"label": "Title",
+								"type": "string",
+								"required": true
+							},
+							{
+								"slug": "text",
+								"label": "Text",
+								"type": "text"
+							},
+							{
+								"slug": "url",
+								"label": "Link",
+								"type": "url"
+							}
+						]
+					}
+				},
+				{
+					"slug": "cta_heading",
+					"label": "Call-to-action heading",
+					"type": "string"
+				},
+				{
+					"slug": "cta_text",
+					"label": "Call-to-action text",
+					"type": "text"
 				}
 			]
-		}
-	],
-	"taxonomies": [
-		{
-			"name": "category",
-			"label": "Categories",
-			"labelSingular": "Category",
-			"hierarchical": true,
-			"collections": ["posts"],
-			"terms": [
-				{
-					"slug": "development",
-					"label": "Development"
-				},
-				{
-					"slug": "design",
-					"label": "Design"
-				},
-				{
-					"slug": "notes",
-					"label": "Notes"
-				}
-			]
-		},
-		{
-			"name": "tag",
-			"label": "Tags",
-			"labelSingular": "Tag",
-			"hierarchical": false,
-			"collections": ["posts"],
-			"terms": [
-				{
-					"slug": "webdev",
-					"label": "Web Development"
-				},
-				{
-					"slug": "opinion",
-					"label": "Opinion"
-				},
-				{
-					"slug": "tools",
-					"label": "Tools"
-				},
-				{
-					"slug": "creativity",
-					"label": "Creativity"
-				}
-			]
-		}
-	],
-	"bylines": [
-		{
-			"id": "byline-editorial",
-			"slug": "emdash-editorial",
-			"displayName": "EmDash Editorial"
-		},
-		{
-			"id": "byline-guest",
-			"slug": "guest-contributor",
-			"displayName": "Guest Contributor",
-			"isGuest": true
 		}
 	],
 	"menus": [
@@ -135,802 +339,759 @@
 			"items": [
 				{
 					"type": "custom",
-					"label": "Home",
-					"url": "/"
+					"label": "Hikes",
+					"url": "/#hikes"
 				},
 				{
 					"type": "custom",
-					"label": "About",
-					"url": "/pages/about"
+					"label": "About us",
+					"url": "/about"
 				},
 				{
 					"type": "custom",
-					"label": "Posts",
-					"url": "/posts"
-				}
-			]
-		}
-	],
-	"widgetAreas": [
-		{
-			"name": "sidebar",
-			"label": "Sidebar",
-			"description": "Widget area displayed on single post pages",
-			"widgets": [
-				{
-					"type": "component",
-					"componentId": "core:search",
-					"title": "Search"
-				},
-				{
-					"type": "component",
-					"componentId": "core:categories",
-					"title": "Categories"
-				},
-				{
-					"type": "component",
-					"componentId": "core:tags",
-					"title": "Tags"
-				},
-				{
-					"type": "component",
-					"componentId": "core:recent-posts",
-					"title": "Recent Posts",
-					"props": {
-						"count": 5,
-						"showDate": true
-					}
-				},
-				{
-					"type": "component",
-					"componentId": "core:archives",
-					"title": "Archives",
-					"props": {
-						"type": "monthly",
-						"limit": 6
-					}
-				}
-			]
-		},
-		{
-			"name": "footer",
-			"label": "Footer",
-			"description": "Widget area displayed in the site footer",
-			"widgets": [
-				{
-					"type": "content",
-					"title": "About",
-					"content": [
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "A blog about software, design, and the occasional stray thought.",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
-						}
-					]
-				}
-			]
-		}
-	],
-	"sections": [
-		{
-			"slug": "newsletter-signup",
-			"title": "Newsletter Signup",
-			"description": "A call-to-action block for newsletter subscriptions",
-			"keywords": ["newsletter", "subscribe", "email", "cta"],
-			"source": "theme",
-			"content": [
-				{
-					"_type": "block",
-					"style": "h3",
-					"children": [
-						{
-							"_type": "span",
-							"text": "Stay in the loop",
-							"_key": "k1"
-						}
-					],
-					"_key": "k0"
-				},
-				{
-					"_type": "block",
-					"style": "normal",
-					"children": [
-						{
-							"_type": "span",
-							"text": "Get notified when new posts are published. No spam, unsubscribe anytime.",
-							"_key": "k3"
-						}
-					],
-					"_key": "k2"
-				}
-			]
-		},
-		{
-			"slug": "about-author",
-			"title": "About the Author",
-			"description": "Brief author bio for use in posts or pages",
-			"keywords": ["author", "bio", "about"],
-			"source": "theme",
-			"content": [
-				{
-					"_type": "block",
-					"style": "normal",
-					"children": [
-						{
-							"_type": "span",
-							"text": "A software developer who writes about building things on the web. Based somewhere with good coffee and reliable internet.",
-							"_key": "k1"
-						}
-					],
-					"_key": "k0"
+					"label": "Contact",
+					"url": "/contact"
 				}
 			]
 		}
 	],
 	"content": {
-		"pages": [
+		"tours": [
 			{
-				"id": "about",
-				"slug": "about",
+				"id": "tour-ancient-path",
+				"slug": "ancient-path",
 				"status": "published",
 				"data": {
-					"title": "About",
-					"content": [
+					"title": "The Ancient Path: Delphi to Kirra",
+					"lede": "Follow the pilgrims' road from Delphi down to the sea, through a UNESCO-listed grove of 1.5 million olive trees.",
+					"difficulty": "EASY",
+					"group_size": "8+ people",
+					"sort_order": 1,
+					"from_price": 40,
+					"transport_included": false,
+					"cover": {
+						"$media": {
+							"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ancient-path/1.jpg",
+							"alt": "The Ancient Path: Delphi to Kirra",
+							"filename": "tours-ancient-path-1.jpg"
+						}
+					},
+					"gallery": [
 						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "A place for writing about software, design, and the occasional stray thought. No posting schedule, no newsletter funnel. Just things I wanted to write down.",
-									"_key": "k1"
+							"image": {
+								"$media": {
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ancient-path/2.jpg",
+									"alt": "The Ancient Path: Delphi to Kirra",
+									"filename": "tours-ancient-path-2.jpg"
 								}
-							],
-							"_key": "k0"
+							}
 						},
 						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "Built with Astro and EmDash. The source is open if you want to see how it works.",
-									"_key": "k3"
+							"image": {
+								"$media": {
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ancient-path/3.jpg",
+									"alt": "The Ancient Path: Delphi to Kirra",
+									"filename": "tours-ancient-path-3.jpg"
 								}
-							],
-							"_key": "k2"
+							}
+						},
+						{
+							"image": {
+								"$media": {
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ancient-path/4.jpg",
+									"alt": "The Ancient Path: Delphi to Kirra",
+									"filename": "tours-ancient-path-4.jpg"
+								}
+							}
+						}
+					],
+					"distance": "10 km",
+					"elevation": "+7 m / −540 m",
+					"hiking_time": "3 h 30 min incl. stops",
+					"total_time": "Around 3.5 hours",
+					"terrain": "Rocky mountain path",
+					"departure": "9:00 am at the Flag Spot of Delphi",
+					"ages": "8+",
+					"fitness": "Average and above",
+					"story_heading": "Historical significance",
+					"story": [
+						{
+							"heading": "Pilgrim gateway",
+							"text": "In ancient times, travelers, priests, and merchants arriving by sea docked at Kirra and walked this path upward to consult the Pythia."
+						},
+						{
+							"heading": "Modern trail",
+							"text": "Today, the route forms a portion of the European long-distance E4 footpath."
+						}
+					],
+					"highlights": [
+						{
+							"text": "Following the ancient pilgrims' steps"
+						},
+						{
+							"text": "Walk inside the ancient Crisaean olive grove, listed by UNESCO as a unique landscape of more than 1.5 million olive trees"
+						},
+						{
+							"text": "Beautiful view of Kirra and Itea, and the entire olive grove from above"
+						},
+						{
+							"text": "Part of the E4 European path"
+						}
+					],
+					"equipment": [
+						{
+							"item": "Hiking shoes (obligatory)"
+						},
+						{
+							"item": "Comfortable clothes"
+						},
+						{
+							"item": "Waterproof jacket"
+						},
+						{
+							"item": "Hat or beanie, sunglasses, sunblock"
+						},
+						{
+							"item": "Small backpack"
+						},
+						{
+							"item": "Personal bottle of water (1L)"
+						}
+					],
+					"prices": [
+						{
+							"group": "Per person",
+							"price": "€40"
+						}
+					],
+					"price_note": "Minimum of 8 participants."
+				}
+			},
+			{
+				"id": "tour-corycian-cave",
+				"slug": "corycian-cave",
+				"status": "published",
+				"data": {
+					"title": "Corycian Cave",
+					"lede": "Climb through fir forest to the sacred cave of Pan and the Nymphs, with Delphi far below.",
+					"difficulty": "MEDIUM",
+					"group_size": "2–7 people",
+					"sort_order": 2,
+					"from_price": 110,
+					"transport_included": true,
+					"cover": {
+						"$media": {
+							"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/corycian/2.jpg",
+							"alt": "Corycian Cave",
+							"filename": "tours-corycian-2.jpg"
+						}
+					},
+					"gallery": [
+						{
+							"image": {
+								"$media": {
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/corycian/1.jpg",
+									"alt": "Corycian Cave",
+									"filename": "tours-corycian-1.jpg"
+								}
+							}
+						},
+						{
+							"image": {
+								"$media": {
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/corycian/3.jpg",
+									"alt": "Corycian Cave",
+									"filename": "tours-corycian-3.jpg"
+								}
+							}
+						},
+						{
+							"image": {
+								"$media": {
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/corycian/4.jpg",
+									"alt": "Corycian Cave",
+									"filename": "tours-corycian-4.jpg"
+								}
+							}
+						}
+					],
+					"distance": "13 km",
+					"elevation": "+330 m / −900 m",
+					"hiking_time": "5 h 30 min incl. stops",
+					"total_time": "Around 6.5 hours incl. transport and stops",
+					"terrain": "Fir forest, fields and rocky mountain path",
+					"departure": "8:30 am at the appointed location (Delphi, Chrisso or Itea)",
+					"ages": "8+",
+					"fitness": "Good and above",
+					"story_heading": "History and mythology",
+					"story": [
+						{
+							"heading": "Ancient worship",
+							"text": "Sacred since the late Neolithic period (around 4000 BCE), the cave was dedicated to the god Pan, the Corycian Nymphs, and occasionally associated with Dionysus and Zeus."
+						},
+						{
+							"heading": "Mythology",
+							"text": "Named after the Naiad nymph Corycia, legend states that Apollo seduced a nymph here who gave birth to their son Lycorus. Aeschylus and Pausanias both wrote of its divine and breathtaking atmosphere."
+						},
+						{
+							"heading": "Wartime refuge",
+							"text": "During the Persian invasion of 480 BCE, local residents of Delphi used the cavern as a safe hiding place. It continued to serve as a shelter during later conflicts, including invasions by Turks and Germans."
+						},
+						{
+							"heading": "Archaeological discoveries",
+							"text": "Excavations conducted in 1970–1971 by Pierre Amandry (French School of Athens) uncovered thousands of votive offerings, including pottery, bronze figurines, and over 25,000 animal bone astragals (knucklebones) used in ancient rituals. Many findings are exhibited in the Archaeological Museum of Delphi."
+						}
+					],
+					"highlights": [
+						{
+							"text": "The Corycian Cave"
+						},
+						{
+							"text": "Lovely fir forest hike"
+						},
+						{
+							"text": "Breathtaking view above Delphi"
+						}
+					],
+					"equipment": [
+						{
+							"item": "Hiking shoes (obligatory)"
+						},
+						{
+							"item": "Comfortable clothes"
+						},
+						{
+							"item": "Waterproof jacket"
+						},
+						{
+							"item": "Hat or beanie, sunglasses, sunblock"
+						},
+						{
+							"item": "Small backpack"
+						},
+						{
+							"item": "Personal bottle of water (1.5L minimum)"
+						}
+					],
+					"prices": [
+						{
+							"group": "1 person",
+							"price": "€800"
+						},
+						{
+							"group": "2 people",
+							"price": "€400"
+						},
+						{
+							"group": "3 people",
+							"price": "€270"
+						},
+						{
+							"group": "4 people",
+							"price": "€200"
+						},
+						{
+							"group": "5 people",
+							"price": "€160"
+						},
+						{
+							"group": "6 people",
+							"price": "€130"
+						},
+						{
+							"group": "7 people",
+							"price": "€110"
+						}
+					]
+				}
+			},
+			{
+				"id": "tour-herakles-pyre",
+				"slug": "herakles-pyre",
+				"status": "published",
+				"data": {
+					"title": "Herakles' Pyre",
+					"lede": "Hike Mount Oiti's fir forests to the spot where Herakles' funeral pyre was lit, and up to the 1,565 m Pyrgaki peak.",
+					"difficulty": "MEDIUM",
+					"group_size": "2–7 people",
+					"sort_order": 3,
+					"from_price": 120,
+					"transport_included": true,
+					"cover": {
+						"$media": {
+							"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/herakles/5.jpg",
+							"alt": "Herakles' Pyre",
+							"filename": "tours-herakles-5.jpg"
+						}
+					},
+					"gallery": [
+						{
+							"image": {
+								"$media": {
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/herakles/1.jpg",
+									"alt": "Herakles' Pyre",
+									"filename": "tours-herakles-1.jpg"
+								}
+							}
+						},
+						{
+							"image": {
+								"$media": {
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/herakles/2.jpg",
+									"alt": "Herakles' Pyre",
+									"filename": "tours-herakles-2.jpg"
+								}
+							}
+						},
+						{
+							"image": {
+								"$media": {
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/herakles/3.jpg",
+									"alt": "Herakles' Pyre",
+									"filename": "tours-herakles-3.jpg"
+								}
+							}
+						},
+						{
+							"image": {
+								"$media": {
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/herakles/4.jpg",
+									"alt": "Herakles' Pyre",
+									"filename": "tours-herakles-4.jpg"
+								}
+							}
+						}
+					],
+					"distance": "9.5 km",
+					"elevation": "+640 m / −590 m",
+					"hiking_time": "4 h 30 min incl. stops",
+					"total_time": "Around 7.5–8 hours incl. transport and stops",
+					"terrain": "Fir forest hiking path",
+					"departure": "8:00 am at the appointed location (Delphi, Chrisso or Itea)",
+					"ages": "8+",
+					"fitness": "Good and above",
+					"story_heading": "Mythology and history",
+					"story": [
+						{
+							"heading": "The myth",
+							"text": "According to Greek mythology, this is the exact spot where the funeral pyre was lit for Heracles. He threw himself into the flames to escape the agonizing pain caused by the poisoned Shirt of Nessus, given to him by his wife Deianira. As the flames rose, Zeus struck the pyre with a thunderbolt and elevated his son to Mount Olympus to become immortal."
+						},
+						{
+							"heading": "The sanctuary",
+							"text": "A prostyle Doric temple dedicated to the worship of Heracles was built here, dating back to the 6th century BC. The site remained an active place of worship with various reconstructions until the Roman period."
+						},
+						{
+							"heading": "Excavations",
+							"text": "The site was excavated in 1920 by archaeologist Nikos Papadakis. The digs uncovered clay and bronze votive offerings (including small figurines of Heracles), coins, and inscriptions referencing the \"Oitea Herakleia\" festivals celebrated in honor of the deified hero."
+						}
+					],
+					"highlights": [
+						{
+							"text": "The ancient sanctuary of Herakles Pyre"
+						},
+						{
+							"text": "Mountain peak \"Pyrgaki\" at 1,565 m altitude"
+						},
+						{
+							"text": "See free horses (if they are in the area)"
+						},
+						{
+							"text": "Amazing fir forest hike"
+						}
+					],
+					"equipment": [
+						{
+							"item": "Hiking shoes (obligatory)"
+						},
+						{
+							"item": "Comfortable clothes"
+						},
+						{
+							"item": "Waterproof jacket"
+						},
+						{
+							"item": "Hat or beanie, sunglasses, sunblock"
+						},
+						{
+							"item": "Small backpack"
+						},
+						{
+							"item": "Personal bottle of water (1.5L)"
+						}
+					],
+					"prices": [
+						{
+							"group": "1 person",
+							"price": "€850"
+						},
+						{
+							"group": "2 people",
+							"price": "€420"
+						},
+						{
+							"group": "3 people",
+							"price": "€280"
+						},
+						{
+							"group": "4 people",
+							"price": "€210"
+						},
+						{
+							"group": "5 people",
+							"price": "€170"
+						},
+						{
+							"group": "6 people",
+							"price": "€140"
+						},
+						{
+							"group": "7 people",
+							"price": "€120"
+						}
+					],
+					"note": "At the end of the hiking trail, we can stop for a quick pause for a refreshment, coffee or a snack at the Iti Shelter before we head back. And if we are a bit lucky, free horses will be roaming the area around."
+				}
+			},
+			{
+				"id": "tour-ephialtes-path",
+				"slug": "ephialtes-path",
+				"status": "published",
+				"data": {
+					"title": "Ephialtes Path",
+					"lede": "Trace the secret mountain passage of 480 BC to the hill where Leonidas and the 300 Spartans made their stand.",
+					"difficulty": "HARD",
+					"group_size": "2–7 people",
+					"sort_order": 4,
+					"from_price": 150,
+					"transport_included": true,
+					"cover": {
+						"$media": {
+							"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ephialtes/1.jpg",
+							"alt": "Ephialtes Path",
+							"filename": "tours-ephialtes-1.jpg"
+						}
+					},
+					"gallery": [
+						{
+							"image": {
+								"$media": {
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ephialtes/2.jpg",
+									"alt": "Ephialtes Path",
+									"filename": "tours-ephialtes-2.jpg"
+								}
+							}
+						},
+						{
+							"image": {
+								"$media": {
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ephialtes/3.jpg",
+									"alt": "Ephialtes Path",
+									"filename": "tours-ephialtes-3.jpg"
+								}
+							}
+						},
+						{
+							"image": {
+								"$media": {
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ephialtes/4.jpg",
+									"alt": "Ephialtes Path",
+									"filename": "tours-ephialtes-4.jpg"
+								}
+							}
+						},
+						{
+							"image": {
+								"$media": {
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ephialtes/5.jpg",
+									"alt": "Ephialtes Path",
+									"filename": "tours-ephialtes-5.jpg"
+								}
+							}
+						}
+					],
+					"distance": "16 km",
+					"elevation": "+510 m / −1,020 m",
+					"hiking_time": "6 h 30 min incl. stops",
+					"total_time": "Around 12 hours incl. transport, hiking, museum, statue and a meal at a tavern",
+					"terrain": "Mixed forest and mountain path",
+					"departure": "8:00 am at the appointed location (Delphi, Chrisso or Itea)",
+					"ages": "12+",
+					"fitness": "Very good",
+					"story_heading": "History",
+					"story": [
+						{
+							"heading": "The Anopaia Atrapos",
+							"text": "The Efialtis Path, historically known as the Anopaia Atrapos, is the mountain passage on Mount Kallidromo that altered the course of western history. In September 480 BC, during the Greco-Persian Wars, a local Greek named Ephialtes of Trachis used this secret trail to guide the Persian army behind the Greek defensive lines, leading to the ultimate destruction of King Leonidas and his men."
+						}
+					],
+					"highlights": [
+						{
+							"text": "Amazing mixed forest hike: fir, oak, plane, beech and strawberry trees"
+						},
+						{
+							"text": "The statue of the Spartan warrior"
+						},
+						{
+							"text": "The actual hill where the 300 Spartans fought and died"
+						}
+					],
+					"equipment": [
+						{
+							"item": "Hiking shoes (obligatory)"
+						},
+						{
+							"item": "Comfortable clothes"
+						},
+						{
+							"item": "Waterproof jacket"
+						},
+						{
+							"item": "Hat or beanie, sunglasses, sunblock"
+						},
+						{
+							"item": "Small backpack"
+						},
+						{
+							"item": "Personal bottle of water (2L minimum)"
+						}
+					],
+					"prices": [
+						{
+							"group": "1 person",
+							"price": "€1,040"
+						},
+						{
+							"group": "2 people",
+							"price": "€520"
+						},
+						{
+							"group": "3 people",
+							"price": "€350"
+						},
+						{
+							"group": "4 people",
+							"price": "€260"
+						},
+						{
+							"group": "5 people",
+							"price": "€210"
+						},
+						{
+							"group": "6 people",
+							"price": "€175"
+						},
+						{
+							"group": "7 people",
+							"price": "€150"
 						}
 					]
 				}
 			}
 		],
-		"posts": [
+		"guides": [
 			{
-				"id": "post-1",
-				"slug": "building-for-the-long-term",
+				"id": "guide-karambetsos",
+				"slug": "panagiotis-karambetsos",
 				"status": "published",
 				"data": {
-					"title": "Building for the Long Term",
-					"excerpt": "The frameworks will change. The databases will change. What survives is the clarity of your thinking.",
-					"featured_image": {
+					"title": "Panagiotis Karambetsos",
+					"role": "Guide",
+					"sort_order": 1,
+					"photo": {
 						"$media": {
-							"url": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=800&fit=crop",
-							"alt": "Code on a monitor in a dark room",
-							"filename": "building-long-term.jpg"
+							"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/about/karambetsos.jpg",
+							"alt": "Panagiotis Karambetsos",
+							"filename": "about-karambetsos.jpg"
 						}
-					},
-					"content": [
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "Every few years the industry collectively decides that everything we've been doing is wrong and there's a better way. New frameworks, new paradigms, new build tools. The churn is relentless, and if you're not careful, you spend more time migrating than building.",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "I've been writing software long enough to have seen several of these cycles. jQuery to Backbone to Angular to React to whatever comes next. Each transition felt urgent at the time. Looking back, the things that actually mattered were rarely about the framework.",
-									"_key": "k3"
-								}
-							],
-							"_key": "k2"
-						},
-						{
-							"_type": "block",
-							"style": "h2",
-							"children": [
-								{
-									"_type": "span",
-									"text": "What survives",
-									"_key": "k5"
-								}
-							],
-							"_key": "k4"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "Clean data models survive. Clear boundaries between systems survive. Good naming survives. The decision to keep things simple when you could have made them clever - that definitely survives.",
-									"_key": "k7"
-								}
-							],
-							"_key": "k6"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "What doesn't survive is code that was written to impress, abstractions built for problems that never materialized, and architectures designed around a framework's opinions rather than the domain's reality.",
-									"_key": "k9"
-								}
-							],
-							"_key": "k8"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "The best code I've written is boring. It reads like prose, does one thing well, and doesn't require a PhD in category theory to understand. The worst code I've written was technically impressive at the time.",
-									"_key": "k11"
-								}
-							],
-							"_key": "k10"
-						}
-					]
-				},
-				"bylines": [
-					{
-						"byline": "byline-editorial"
-					},
-					{
-						"byline": "byline-guest",
-						"roleLabel": "Guest essay"
 					}
-				],
-				"taxonomies": {
-					"category": ["development"],
-					"tag": ["opinion"]
 				}
 			},
 			{
-				"id": "post-2",
-				"slug": "the-case-for-static",
+				"id": "guide-lytras",
+				"slug": "panagiotis-lytras",
 				"status": "published",
 				"data": {
-					"title": "The Case for Static",
-					"excerpt": "Static sites aren't a step backwards. They're what you get when you take performance and simplicity seriously.",
-					"featured_image": {
+					"title": "Panagiotis Lytras",
+					"role": "Guide",
+					"sort_order": 2,
+					"photo": {
 						"$media": {
-							"url": "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=800&fit=crop",
-							"alt": "Laptop and coffee on a wooden table",
-							"filename": "case-for-static.jpg"
+							"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/about/lytras.jpg",
+							"alt": "Panagiotis Lytras",
+							"filename": "about-lytras.jpg"
 						}
-					},
-					"content": [
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "There's a certain irony in the fact that the web started static, went dynamic, and is now swinging back toward static again. But the static sites of today aren't the hand-coded HTML pages of 1998. They're generated, optimized, and deployed to edge networks that serve them in milliseconds.",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "The pitch for server-rendered everything was compelling: dynamic content, personalization, real-time data. But most sites don't need most of that most of the time. A blog post doesn't need to be rendered on every request. A product page doesn't change every second.",
-									"_key": "k3"
-								}
-							],
-							"_key": "k2"
-						},
-						{
-							"_type": "block",
-							"style": "h2",
-							"children": [
-								{
-									"_type": "span",
-									"text": "The performance argument",
-									"_key": "k5"
-								}
-							],
-							"_key": "k4"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "A static file served from a CDN is as fast as the web gets. No cold starts, no database queries, no server-side rendering overhead. The Time to First Byte is essentially the network latency to your nearest edge node. You can't beat physics.",
-									"_key": "k7"
-								}
-							],
-							"_key": "k6"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "And when you do need dynamic behavior, you can add it surgically. An island of interactivity in a sea of static HTML. The best of both worlds, without paying the cost of either at all times.",
-									"_key": "k9"
-								}
-							],
-							"_key": "k8"
-						}
-					]
-				},
-				"bylines": [
-					{
-						"byline": "byline-editorial"
 					}
-				],
-				"taxonomies": {
-					"category": ["development"],
-					"tag": ["webdev", "opinion"]
 				}
-			},
+			}
+		],
+		"pages": [
 			{
-				"id": "post-3",
-				"slug": "learning-in-public",
+				"id": "home",
+				"slug": "home",
 				"status": "published",
 				"data": {
-					"title": "Learning in Public",
-					"excerpt": "Writing about what you're learning is the fastest way to find out what you don't actually understand.",
-					"featured_image": {
+					"title": "Walk the trails of gods, heroes and pilgrims.",
+					"kicker": "Hiking through ancient mystical sites",
+					"lead": "Small-group hikes from Delphi to the sites you can only reach on foot, led by two local guides from Kirra.",
+					"hero_image": {
 						"$media": {
-							"url": "https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=1200&h=800&fit=crop",
-							"alt": "Notebook and pen on a desk",
-							"filename": "learning-in-public.jpg"
+							"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/corycian/1.jpg",
+							"alt": "View over Delphi and the Gulf of Corinth",
+							"filename": "tours-corycian-1.jpg"
 						}
 					},
+					"intro_heading": "Delphi, on foot and off the map.",
+					"intro": "If you are planning to visit Delphi, we offer you exclusive (2–7 persons) planned hiking trips to the most iconic archaeological sites of the area, that are not accessible by any other means, such as Herakles Pyre, Corycian Cave and Ephialtis Path (where king Leonidas and the 300 Spartans fought), as well as the ancient path of pilgrims from Delphi to Kirra with larger groups (8+ persons).",
+					"items": [
+						{
+							"title": "English-speaking guides"
+						},
+						{
+							"title": "True local guides",
+							"text": "Both born and living in Kirra, with vast experience in all the surrounding mountains, hills and forests."
+						},
+						{
+							"title": "Local expertise",
+							"text": "Regional history, local culture and stories, flora and fauna."
+						},
+						{
+							"title": "Safety and navigation",
+							"text": "We monitor weather risks, manage first aid, and make sure you do not get lost."
+						},
+						{
+							"title": "Transportation",
+							"text": "From Itea, Chrisso or Delphi and back (not for the Ancient Path Delphi–Kirra)."
+						},
+						{
+							"title": "First-aid certified guides"
+						},
+						{
+							"title": "Permits and fees",
+							"text": "We secure the necessary park permits and entry access, if needed."
+						},
+						{
+							"title": "Gear",
+							"text": "We provide walking sticks for the trails."
+						},
+						{
+							"title": "Taxes"
+						}
+					],
 					"content": [
 						{
 							"_type": "block",
 							"style": "normal",
+							"listItem": "bullet",
+							"level": 1,
+							"_key": "k0",
 							"children": [
 								{
 									"_type": "span",
-									"text": "I started writing about things I was learning not because I had anything original to say, but because I kept forgetting what I'd figured out. The blog posts were notes to my future self, published publicly more out of laziness than courage.",
+									"text": "Accident insurance",
 									"_key": "k1"
 								}
-							],
-							"_key": "k0"
+							]
 						},
 						{
 							"_type": "block",
 							"style": "normal",
+							"listItem": "bullet",
+							"level": 1,
+							"_key": "k2",
 							"children": [
 								{
 									"_type": "span",
-									"text": "What I didn't expect was how much the writing itself would accelerate the learning. There's a particular kind of clarity that comes from trying to explain something to someone else. The gaps in your understanding, which you can happily ignore when the knowledge lives only in your head, become painfully obvious when you try to put it into sentences.",
+									"text": "Anything not mentioned in the list",
 									"_key": "k3"
 								}
-							],
-							"_key": "k2"
-						},
-						{
-							"_type": "block",
-							"style": "h2",
-							"children": [
-								{
-									"_type": "span",
-									"text": "The fear of being wrong",
-									"_key": "k5"
-								}
-							],
-							"_key": "k4"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "The biggest barrier isn't time or writing skill. It's the fear of publishing something that turns out to be wrong. But here's the thing: being wrong publicly is one of the most efficient ways to learn. Someone will correct you, often kindly, and you'll remember that correction forever.",
-									"_key": "k7"
-								}
-							],
-							"_key": "k6"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "The posts that helped me most weren't written by experts. They were written by people one step ahead of me on the same path, in language that hadn't yet been polished into abstraction. There's a place for that kind of writing, and it's more valuable than most people realize.",
-									"_key": "k9"
-								}
-							],
-							"_key": "k8"
+							]
 						}
-					]
-				},
-				"taxonomies": {
-					"category": ["notes"],
-					"tag": ["opinion"]
+					],
+					"cta_heading": "Parnassus, Giona, Oiti, Helicon.",
+					"cta_text": "More exclusive or adventure routes in the surrounding mountains of the area, on demand. Contact us for details and prices."
 				}
 			},
 			{
-				"id": "post-4",
-				"slug": "small-tools-big-impact",
+				"id": "about",
+				"slug": "about",
 				"status": "published",
 				"data": {
-					"title": "Small Tools, Big Impact",
-					"excerpt": "The best developer tools do one thing well and get out of your way. A love letter to focused software.",
-					"featured_image": {
-						"$media": {
-							"url": "https://images.unsplash.com/photo-1575026615908-666710ae5e47?w=1200&h=800&fit=crop",
-							"alt": "Wrenches and hand tools hanging on a workshop wall",
-							"filename": "small-tools.jpg"
-						}
-					},
+					"title": "Welcome to our site!",
+					"kicker": "About us",
 					"content": [
 						{
 							"_type": "block",
 							"style": "normal",
+							"_key": "k4",
 							"children": [
 								{
 									"_type": "span",
-									"text": "There's a class of software that doesn't get enough appreciation. Not the frameworks or the platforms or the IDEs, but the small, sharp tools that solve one problem so well you stop thinking about them. They become invisible, which is the highest compliment you can pay a tool.",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "I'm talking about things like ripgrep, which searches code so fast it changed how I think about searching. Or jq, which makes JSON feel like a first-class data format in the terminal. Or curl, which has been quietly powering the internet's plumbing for decades.",
-									"_key": "k3"
-								}
-							],
-							"_key": "k2"
-						},
-						{
-							"_type": "block",
-							"style": "h2",
-							"children": [
-								{
-									"_type": "span",
-									"text": "The Unix philosophy, revisited",
+									"text": "We are 2 local men, Panagiotis Karambetsos and Panagiotis Lytras, both originating from and living in Kirra, with vast experience in hiking and mountaineering in the surrounding areas and all the nearby landscape, from the smallest hills to the highest peaks!",
 									"_key": "k5"
 								}
-							],
-							"_key": "k4"
+							]
 						},
 						{
 							"_type": "block",
 							"style": "normal",
+							"_key": "k6",
 							"children": [
 								{
 									"_type": "span",
-									"text": "Do one thing well. The advice is old enough to be a cliche, but the best modern tools still follow it. They don't try to be platforms. They don't have plugin ecosystems or configuration languages or startup wizards. They do their job and they compose with other tools that do theirs.",
+									"text": "We love nature, athleticism, and we honor our heritage and our ancestors' culture!",
 									"_key": "k7"
 								}
-							],
-							"_key": "k6"
+							]
 						},
 						{
 							"_type": "block",
 							"style": "normal",
+							"_key": "k8",
 							"children": [
 								{
 									"_type": "span",
-									"text": "The temptation is always to add more. One more feature, one more option, one more integration. But every addition is a decision someone has to make, a path through the code that has to be maintained, a thing that can break. The best tools resist this. They stay small, and in staying small, they stay reliable.",
+									"text": "We are dedicated to providing an authentic experience!",
 									"_key": "k9"
 								}
-							],
-							"_key": "k8"
+							]
+						}
+					],
+					"items": [
+						{
+							"title": "@exploring_greece",
+							"text": "You can find many videos of Panagiotis Karambetsos's hiking and mountaineering trips, solo or with friends, on his YouTube channel.",
+							"url": "https://www.youtube.com/@exploring_greece/videos"
 						}
 					]
-				},
-				"taxonomies": {
-					"category": ["development"],
-					"tag": ["tools"]
 				}
 			},
 			{
-				"id": "post-5",
-				"slug": "designing-with-constraints",
+				"id": "contact",
+				"slug": "contact",
 				"status": "published",
 				"data": {
-					"title": "Designing with Constraints",
-					"excerpt": "Limitations aren't obstacles to creativity. They're the structure that makes creativity possible.",
-					"featured_image": {
-						"$media": {
-							"url": "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=1200&h=800&fit=crop",
-							"alt": "Pencils and design tools on a desk",
-							"filename": "designing-with-constraints.jpg"
-						}
-					},
-					"content": [
+					"title": "Plan your hike.",
+					"kicker": "Contact",
+					"lead": "Tell us which hike, when, and how many of you. Viber is the quickest way to reach us.",
+					"items": [
 						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "Give a designer a blank canvas and unlimited time, and they'll often produce something mediocre. Give them a tight brief, a small screen, and a deadline, and they'll surprise you. This isn't a paradox - it's how creativity actually works.",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
+							"title": "Email",
+							"text": "info@delphihiking.com",
+							"url": "mailto:info@delphihiking.com"
 						},
 						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "Constraints force decisions. When you can't use more than two typefaces, you have to choose carefully. When the page has to load in under a second, every element earns its place. When the interface has to work on a 320px screen, you discover what's truly essential.",
-									"_key": "k3"
-								}
-							],
-							"_key": "k2"
+							"title": "Viber chat (preferred)",
+							"text": "Number to be added"
 						},
 						{
-							"_type": "block",
-							"style": "h2",
-							"children": [
-								{
-									"_type": "span",
-									"text": "Embracing the box",
-									"_key": "k5"
-								}
-							],
-							"_key": "k4"
+							"title": "Phone",
+							"text": "694 872 2839",
+							"url": "tel:+306948722839"
 						},
 						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "The web itself is a constraint. HTML flows in one direction. CSS has a box model. Browsers have viewport sizes and font rendering quirks. You can fight these constraints or you can work with them, and the results are dramatically different.",
-									"_key": "k7"
-								}
-							],
-							"_key": "k6"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "The designs I admire most don't look like they were forced through a framework. They look like they grew naturally from the medium, respecting its grain rather than working against it. That only happens when you treat constraints as creative partners rather than enemies.",
-									"_key": "k9"
-								}
-							],
-							"_key": "k8"
-						}
-					]
-				},
-				"taxonomies": {
-					"category": ["design"],
-					"tag": ["creativity"]
-				}
-			},
-			{
-				"id": "post-6",
-				"slug": "a-weekend-with-a-side-project",
-				"status": "published",
-				"data": {
-					"title": "A Weekend with a Side Project",
-					"excerpt": "No stakeholders, no deadlines, no Jira tickets. Just you and a dumb idea that might turn into something.",
-					"featured_image": {
-						"$media": {
-							"url": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1200&h=800&fit=crop",
-							"alt": "Code on a screen with a dark theme",
-							"filename": "weekend-side-project.jpg"
-						}
-					},
-					"content": [
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "Saturday morning. Coffee's made, the house is quiet, and I've got an idea that's been nagging at me all week. Not a good idea, necessarily - just a persistent one. A small tool that does a thing I keep doing manually. How hard could it be?",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "This is the best kind of programming. No requirements document, no sprint planning, no pull request reviews. Just a text editor and a problem. The freedom to make terrible architectural decisions, rewrite everything twice, and follow tangents that turn out to be dead ends.",
-									"_key": "k3"
-								}
-							],
-							"_key": "k2"
-						},
-						{
-							"_type": "block",
-							"style": "h2",
-							"children": [
-								{
-									"_type": "span",
-									"text": "Why side projects matter",
-									"_key": "k5"
-								}
-							],
-							"_key": "k4"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "Side projects are where you learn things your day job would never teach you. Not because the problems are harder, but because you're free to take risks. Try a language you've never used. Build something without a framework. Deploy to a platform you've only read about. The stakes are zero, which makes the learning maximum.",
-									"_key": "k7"
-								}
-							],
-							"_key": "k6"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "By Sunday evening, the thing sort of works. It's rough, the error handling is nonexistent, and the README is a single sentence. But it solves the problem I set out to solve, and I learned three things I didn't know on Friday. Not a bad weekend.",
-									"_key": "k9"
-								}
-							],
-							"_key": "k8"
-						}
-					]
-				},
-				"taxonomies": {
-					"category": ["development"],
-					"tag": ["creativity"]
-				}
-			},
-			{
-				"id": "post-7",
-				"slug": "notes-on-simplicity",
-				"status": "published",
-				"data": {
-					"title": "Notes on Simplicity",
-					"excerpt": "Simplicity isn't the absence of complexity. It's the result of understanding a problem well enough to solve it cleanly.",
-					"featured_image": {
-						"$media": {
-							"url": "https://images.unsplash.com/photo-1559051668-e1fa58f25786?w=1200&h=800&fit=crop",
-							"alt": "Geometric pattern carved into white paper",
-							"filename": "notes-on-simplicity.jpg"
-						}
-					},
-					"content": [
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "Every piece of software starts simple. A few files, a clear purpose, a small surface area. Then features get added, edge cases get handled, and before long you're looking at something that requires a diagram to understand. This isn't inevitable, but it takes discipline to prevent.",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "The hard part of simplicity isn't the initial design. It's the ongoing resistance to complication. Every feature request, every bug fix, every refactor is an opportunity to add complexity. Saying no is the most important design skill, and the least celebrated.",
-									"_key": "k3"
-								}
-							],
-							"_key": "k2"
-						},
-						{
-							"_type": "block",
-							"style": "h2",
-							"children": [
-								{
-									"_type": "span",
-									"text": "Removing as a feature",
-									"_key": "k5"
-								}
-							],
-							"_key": "k4"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "The best version of a product often has fewer features than the previous one. Not because features were missing, but because someone had the courage to remove things that weren't earning their keep. Every feature has a cost - in maintenance, in cognitive load, in the weight of the interface.",
-									"_key": "k7"
-								}
-							],
-							"_key": "k6"
-						},
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "Simplicity is a practice, not a destination. You never arrive at simple. You just keep asking: is this necessary? Could this be clearer? Is there a way to solve this problem by removing something instead of adding something? The answer is yes more often than you'd expect.",
-									"_key": "k9"
-								}
-							],
-							"_key": "k8"
-						}
-					]
-				},
-				"taxonomies": {
-					"category": ["notes"],
-					"tag": ["opinion"]
-				}
-			},
-			{
-				"id": "post-draft",
-				"slug": "work-in-progress",
-				"status": "draft",
-				"data": {
-					"title": "Work in Progress",
-					"excerpt": "This post is still being written.",
-					"content": [
-						{
-							"_type": "block",
-							"style": "normal",
-							"children": [
-								{
-									"_type": "span",
-									"text": "This is a draft post that won't appear in the public listing.",
-									"_key": "k1"
-								}
-							],
-							"_key": "k0"
+							"title": "Phone",
+							"text": "699 847 3888",
+							"url": "tel:+306998473888"
 						}
 					]
 				}

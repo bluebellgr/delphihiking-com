@@ -1,0 +1,30 @@
+---
+import { Image } from "emdash/ui";
+import Icon from "./Icon.astro";
+import { difficultyTag, euro, shortTime } from "../utils/tours";
+
+interface Props { tour: any }
+const { tour } = Astro.props;
+const d = tour.data;
+---
+<a href={`/hikes/${tour.id}`} class="card tour-card">
+	<div class="media washed tour-card__img">
+		{d.cover && <Image image={d.cover} />}
+	</div>
+	<div class="tour-card__body">
+		<div class="tags">
+			{d.difficulty && <span class={`${difficultyTag(d.difficulty)} tag-diff`}>{d.difficulty}</span>}
+			{d.group_size && <span class="tag tag-neutral">{d.group_size}</span>}
+		</div>
+		<h3 class="tour-card__title">{d.title}</h3>
+		{d.lede && <p class="tour-card__lede">{d.lede}</p>}
+		<div class="tour-card__meta">
+			{d.distance && <span>{d.distance}</span>}
+			{d.hiking_time && <span>{shortTime(d.hiking_time)} hiking</span>}
+		</div>
+		<div class="tour-card__foot">
+			{d.from_price != null && <span class="price-from">from {euro(d.from_price)}<small> / person</small></span>}
+			<span class="round-arrow"><Icon name="arrowRight" /></span>
+		</div>
+	</div>
+</a>

@@ -6,6 +6,7 @@ import emdash from "emdash/astro";
 
 export default defineConfig({
 	output: "server",
+	siteUrl: "https://delphihiking.com",
 	adapter: cloudflare(),
 	image: {
 		layout: "constrained",
@@ -22,17 +23,17 @@ export default defineConfig({
 	fonts: [
 		{
 			provider: fontProviders.google(),
-			name: "Inter",
+			name: "Figtree",
 			cssVariable: "--font-body",
-			weights: [400, 500, 600, 700],
-			fallbacks: ["sans-serif"],
+			weights: [400, 600, 700],
+			fallbacks: ["system-ui", "sans-serif"],
 		},
 		{
 			provider: fontProviders.google(),
-			name: "JetBrains Mono",
-			cssVariable: "--font-mono",
-			weights: [400, 500],
-			fallbacks: ["monospace"],
+			name: "Caprasimo",
+			cssVariable: "--font-heading",
+			weights: [400],
+			fallbacks: ["Georgia", "serif"],
 		},
 	],
 	devToolbar: { enabled: false },

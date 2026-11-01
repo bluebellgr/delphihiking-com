@@ -1,0 +1,119 @@
+---
+import { getEmDashEntry, getSeoMeta, decodeSlug, getSiteSettings } from "emdash";
+import { Image } from "emdash/ui";
+import Base from "../../layouts/Base.astro";
+import Icon from "../../components/Icon.astro";
+import { resolveBlogSiteIdentity } from "../../utils/site-identity";
+import { difficultyTag, euro } from "../../utils/tours";
+
+const slug = decodeSlug(Astro.params.slug);
+if (!slug) return Astro.rewrite("/404");
+const { entry: tour, cacheHint } = await getEmDashEntry("tours", slug);
+if (!tour) return Astro.rewrite("/404");
+if (Astro.cache?.enabled) Astro.cache.set(cacheHint);
+
+const { siteTitle } = resolveBlogSiteIdentity(await getSiteSettings());
+const seo = getSeoMeta(tour, { siteTitle, siteUrl: Astro.url.origin, path: `/hikes/${slug}` });
+const d = tour.data;
+const inquire = `/contact?tour=${slug}`;
+const stats = [
+	["Distance", d.distance], ["Elevation", d.elevation], ["Hiking time", d.hiking_time], ["Total trip", d.total_time],
+	["Terrain", d.terrain], ["Departure", d.departure], ["Ages", d.ages], ["Fitness", d.fitness],
+].filter(([, v]) => v);
+---
+
+<Base title={seo.title} pageTitle={seo.ogTitle} description={seo.description ?? d.lede} canonical={seo.canonical} robots={seo.robots} content={{ collection: "tours", id: d.id, slug }}>
+	<section class="wrap" style="padding-top: 28px">
+		<a href="/#hikes" class="btn btn-ghost back"><Icon name="arrowLeft" size={16} />All hikes</a>
+		<div class="tour-hero">
+			<div>
+				<div class="tags">
+					{d.difficulty && <span class={`${difficultyTag(d.difficulty)} tag-diff`} {...tour.edit.difficulty}>{d.difficulty}</span>}
+					{d.group_size && <span class="tag tag-neutral" {...tour.edit.group_size}>{d.group_size}</span>}
+				</div>
+				<h1 class="h-display" {...tour.edit.title}>{d.title}</h1>
+				{d.lede && <p class="lead" style="font-size: 19px; margin-bottom: 26px" {...tour.edit.lede}>{d.lede}</p>}
+				<div class="actions" style="gap: 18px">
+					<a class="btn btn-primary btn-lg" href={inquire}>Inquire about this hike</a>
+					{d.from_price != null && <span class="price-from" style="font-size: 22px">from {euro(d.from_price)}<small> / person</small></span>}
+				</div>
+			</div>
+			{d.cover && <div class="media washed tour-hero__img" {...tour.edit.cover}><Image image={d.cover} priority /></div>}
+		</div>
+	</section>
+
+	{stats.length > 0 && (
+		<section class="wrap section--tight">
+			<dl class="stats">
+				{stats.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+			</dl>
+		</section>
+	)}
+
+	{d.story?.length > 0 && (
+		<section class="wrap section split">
+			<h2 class="h-section" style="max-width: 360px" {...tour.edit.story_heading}>{d.story_heading ?? "History"}</h2>
+			<div class="story" {...tour.edit.story}>
+				{d.story.map((s: any) => (
+					<div>
+						{s.heading && <h3>{s.heading}</h3>}
+						<p>{s.text}</p>
+					</div>
+				))}
+			</div>
+		</section>
+	)}
+
+	{d.highlights?.length > 0 && (
+		<section class="wrap section">
+			<h2 class="h-section" style="margin-bottom: 28px">Highlights</h2>
+			<ol class="highlights" {...tour.edit.highlights}>
+				{d.highlights.map((h: any, i: number) => <li><span class="num">{i + 1}</span>{h.text}</li>)}
+			</ol>
+		</section>
+	)}
+
+	{d.gallery?.length > 0 && (
+		<section class="wrap section">
+			<div class="gallery" {...tour.edit.gallery}>
+				{d.gallery.map((g: any) => g.image && <div class="media washed"><Image image={g.image} /></div>)}
+			</div>
+		</section>
+	)}
+
+	<section class="wrap section two-col">
+		{d.equipment?.length > 0 && (
+			<div class="panel panel--sage" {...tour.edit.equipment}>
+				<h2>What to bring</h2>
+				<ul class="dots">{d.equipment.map((e: any) => <li>{e.item}</li>)}</ul>
+			</div>
+		)}
+		{d.prices?.length > 0 && (
+			<div class="panel panel--sand" {...tour.edit.prices}>
+				<h2 style="margin-bottom: 6px">Prices</h2>
+				<p class="muted" style="font-size: 14px; margin-bottom: 14px">Taxes included.</p>
+				<table class="table" style="font-size: 16px">
+					<thead><tr><th>Group size</th><th style="text-align: right">Per person</th></tr></thead>
+					<tbody>{d.prices.map((p: any) => <tr><td>{p.group}</td><td style="text-align: right; font-weight: 700">{p.price}</td></tr>)}</tbody>
+				</table>
+				{d.price_note && <p class="muted" style="margin: 14px 0 0; font-size: 14px">{d.price_note}</p>}
+			</div>
+		)}
+	</section>
+
+	{d.note && (
+		<section class="wrap" style="padding-top: 20px">
+			<p class="note" {...tour.edit.note}>{d.note}</p>
+		</section>
+	)}
+
+	<section class="wrap section">
+		<div class="band-navy band-flex">
+			<div style="max-width: 620px">
+				<h2 class="h-section" style="margin-bottom: 10px">Ready to go?</h2>
+				<p style="margin: 0; font-size: 17px">Send us your dates and group size. Every price includes guides, {d.transport_included ? "transport, " : ""}walking sticks, permits and taxes.</p>
+			</div>
+			<a class="btn btn-cream btn-lg" href={inquire}>Inquire about this hike</a>
+		</div>
+	</section>
+</Base>
