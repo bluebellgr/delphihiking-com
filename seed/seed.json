@@ -371,7 +371,7 @@
 					"transport_included": false,
 					"cover": {
 						"$media": {
-							"url": "https://delphihiking.com/assets/tours/ancient-path/1.jpg",
+							"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ancient-path/1.jpg",
 							"alt": "The Ancient Path: Delphi to Kirra",
 							"filename": "tours-ancient-path-1.jpg"
 						}
@@ -380,7 +380,7 @@
 						{
 							"image": {
 								"$media": {
-									"url": "https://delphihiking.com/assets/tours/ancient-path/2.jpg",
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ancient-path/2.jpg",
 									"alt": "The Ancient Path: Delphi to Kirra",
 									"filename": "tours-ancient-path-2.jpg"
 								}
@@ -389,7 +389,7 @@
 						{
 							"image": {
 								"$media": {
-									"url": "https://delphihiking.com/assets/tours/ancient-path/3.jpg",
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ancient-path/3.jpg",
 									"alt": "The Ancient Path: Delphi to Kirra",
 									"filename": "tours-ancient-path-3.jpg"
 								}
@@ -398,7 +398,7 @@
 						{
 							"image": {
 								"$media": {
-									"url": "https://delphihiking.com/assets/tours/ancient-path/4.jpg",
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ancient-path/4.jpg",
 									"alt": "The Ancient Path: Delphi to Kirra",
 									"filename": "tours-ancient-path-4.jpg"
 								}
@@ -481,7 +481,7 @@
 					"transport_included": true,
 					"cover": {
 						"$media": {
-							"url": "https://delphihiking.com/assets/tours/corycian/2.jpg",
+							"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/corycian/2.jpg",
 							"alt": "Corycian Cave",
 							"filename": "tours-corycian-2.jpg"
 						}
@@ -490,7 +490,7 @@
 						{
 							"image": {
 								"$media": {
-									"url": "https://delphihiking.com/assets/tours/corycian/1.jpg",
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/corycian/1.jpg",
 									"alt": "Corycian Cave",
 									"filename": "tours-corycian-1.jpg"
 								}
@@ -499,7 +499,7 @@
 						{
 							"image": {
 								"$media": {
-									"url": "https://delphihiking.com/assets/tours/corycian/3.jpg",
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/corycian/3.jpg",
 									"alt": "Corycian Cave",
 									"filename": "tours-corycian-3.jpg"
 								}
@@ -508,7 +508,7 @@
 						{
 							"image": {
 								"$media": {
-									"url": "https://delphihiking.com/assets/tours/corycian/4.jpg",
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/corycian/4.jpg",
 									"alt": "Corycian Cave",
 									"filename": "tours-corycian-4.jpg"
 								}
@@ -619,7 +619,7 @@
 					"transport_included": true,
 					"cover": {
 						"$media": {
-							"url": "https://delphihiking.com/assets/tours/herakles/5.jpg",
+							"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/herakles/5.jpg",
 							"alt": "Herakles' Pyre",
 							"filename": "tours-herakles-5.jpg"
 						}
@@ -628,7 +628,7 @@
 						{
 							"image": {
 								"$media": {
-									"url": "https://delphihiking.com/assets/tours/herakles/1.jpg",
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/herakles/1.jpg",
 									"alt": "Herakles' Pyre",
 									"filename": "tours-herakles-1.jpg"
 								}
@@ -637,7 +637,7 @@
 						{
 							"image": {
 								"$media": {
-									"url": "https://delphihiking.com/assets/tours/herakles/2.jpg",
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/herakles/2.jpg",
 									"alt": "Herakles' Pyre",
 									"filename": "tours-herakles-2.jpg"
 								}
@@ -646,7 +646,7 @@
 						{
 							"image": {
 								"$media": {
-									"url": "https://delphihiking.com/assets/tours/herakles/3.jpg",
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/herakles/3.jpg",
 									"alt": "Herakles' Pyre",
 									"filename": "tours-herakles-3.jpg"
 								}
@@ -655,7 +655,7 @@
 						{
 							"image": {
 								"$media": {
-									"url": "https://delphihiking.com/assets/tours/herakles/4.jpg",
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/herakles/4.jpg",
 									"alt": "Herakles' Pyre",
 									"filename": "tours-herakles-4.jpg"
 								}
@@ -766,7 +766,7 @@
 					"transport_included": true,
 					"cover": {
 						"$media": {
-							"url": "https://delphihiking.com/assets/tours/ephialtes/1.jpg",
+							"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ephialtes/1.jpg",
 							"alt": "Ephialtes Path",
 							"filename": "tours-ephialtes-1.jpg"
 						}
@@ -775,7 +775,7 @@
 						{
 							"image": {
 								"$media": {
-									"url": "https://delphihiking.com/assets/tours/ephialtes/2.jpg",
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ephialtes/2.jpg",
 									"alt": "Ephialtes Path",
 									"filename": "tours-ephialtes-2.jpg"
 								}
@@ -784,7 +784,7 @@
 						{
 							"image": {
 								"$media": {
-									"url": "https://delphihiking.com/assets/tours/ephialtes/3.jpg",
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ephialtes/3.jpg",
 									"alt": "Ephialtes Path",
 									"filename": "tours-ephialtes-3.jpg"
 								}
@@ -793,7 +793,7 @@
 						{
 							"image": {
 								"$media": {
-									"url": "https://delphihiking.com/assets/tours/ephialtes/4.jpg",
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ephialtes/4.jpg",
 									"alt": "Ephialtes Path",
 									"filename": "tours-ephialtes-4.jpg"
 								}
@@ -802,7 +802,7 @@
 						{
 							"image": {
 								"$media": {
-									"url": "https://delphihiking.com/assets/tours/ephialtes/5.jpg",
+									"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/ephialtes/5.jpg",
 									"alt": "Ephialtes Path",
 									"filename": "tours-ephialtes-5.jpg"
 								}
@@ -899,7 +899,7 @@
 					"sort_order": 1,
 					"photo": {
 						"$media": {
-							"url": "https://delphihiking.com/assets/about/karambetsos.jpg",
+							"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/about/karambetsos.jpg",
 							"alt": "Panagiotis Karambetsos",
 							"filename": "about-karambetsos.jpg"
 						}
@@ -916,7 +916,7 @@
 					"sort_order": 2,
 					"photo": {
 						"$media": {
-							"url": "https://delphihiking.com/assets/about/lytras.jpg",
+							"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/about/lytras.jpg",
 							"alt": "Panagiotis Lytras",
 							"filename": "about-lytras.jpg"
 						}
@@ -935,7 +935,7 @@
 					"lead": "Small-group hikes from Delphi to the sites you can only reach on foot, led by two local guides from Kirra.",
 					"hero_image": {
 						"$media": {
-							"url": "https://delphihiking.com/assets/tours/corycian/1.jpg",
+							"url": "https://raw.githubusercontent.com/bluebellgr/delphihiking-com/main/public/assets/tours/corycian/1.jpg",
 							"alt": "View over Delphi and the Gulf of Corinth",
 							"filename": "tours-corycian-1.jpg"
 						}
