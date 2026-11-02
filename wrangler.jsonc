@@ -3,23 +3,29 @@
 	"name": "delphihiking-com",
 	"main": "./src/worker.ts",
 	"compatibility_date": "2026-02-24",
-	"compatibility_flags": ["nodejs_compat"],
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
 	"d1_databases": [
 		{
 			"binding": "DB",
-			"database_name": "delphihiking-com","database_id": "62e704c2-6eaa-4db4-9a87-e1f5adc73349",
+			"database_name": "delphihiking-site",
+			"database_id": "18ab84c3-7c61-4c06-8685-dec856a74cd7"
 		},
 	],
 	"r2_buckets": [
 		{
 			"binding": "MEDIA",
-			"bucket_name": "delphihiking-com","preview_bucket_name": "delphihiking-com",
+			"bucket_name": "delphihiking-com",
+			"preview_bucket_name": "delphihiking-com",
 		},
 	],
 	// Sandboxed plugins require Worker Loader, available on Workers paid plans. Uncomment to enable:
 	// "worker_loaders": [{ "binding": "LOADER" }],
 	// General maintenance cron trigger
 	"triggers": {
-		"crons": ["* * * * *"],
+		"crons": [
+			"* * * * *"
+		],
 	},
 }
