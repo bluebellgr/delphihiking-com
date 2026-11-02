@@ -6,7 +6,7 @@ import emdash from "emdash/astro";
 
 export default defineConfig({
 	output: "server",
-	siteUrl: "https://delphihiking.com",
+	siteUrl: "https://www.delphihiking.com",
 	adapter: cloudflare(),
 	image: {
 		layout: "constrained",
