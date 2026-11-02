@@ -1,3 +1,5 @@
 .hidden { display: none; }
 .site-header,
 .site-footer { width: 100%; }
+.site-header { padding: 0; }
+.site-nav__brand img { height: 176px; }
