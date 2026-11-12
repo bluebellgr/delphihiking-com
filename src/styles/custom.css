@@ -4,4 +4,6 @@
 .site-header { padding: 0; }
 .site-nav__brand img { height: 176px; }
 .footerCredit { text-align: center; font-size: 0.8rem; }
-.footerCredit a { color: var(--brand-navy); }
+.footerCredit a,
+.footerCredit a:hover { color: var(--brand-navy); }
+
